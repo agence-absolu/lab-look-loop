@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Look loop</title>
+    <meta name="description" content="Un chat pré-rendu qui suit du regard une mouche, à la place du curseur, à partir de vidéos générées." />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="caption">
+        <h1>Look loop</h1>
+        <p>Lab Absolu · prototype</p>
+      </header>
+
+      <div class="stage" data-stage>
+        <canvas class="stage__canvas" data-canvas role="img" aria-label="Chat qui suit du regard la mouche qui remplace le curseur"></canvas>
+        <div class="stage__loader" data-loader>
+          <span class="stage__progress"><span data-progress></span></span>
+          <span data-loader-text>Chargement des images…</span>
+        </div>
+        <span class="stage__anchor" data-anchor hidden></span>
+      </div>
+    </main>
+  </body>
+</html>

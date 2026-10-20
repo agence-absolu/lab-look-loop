@@ -1,0 +1,186 @@
+{
+  "count": 192,
+  "pattern": "{n}.webp",
+  "pad": 3,
+  "width": 1080,
+  "height": 1080,
+  "fps": 24,
+  "startAngle": -90,
+  "clockwise": true,
+  "anchor": [
+    0.5,
+    0.355
+  ],
+  "keys": [
+    {
+      "frame": 0,
+      "angle": -92
+    },
+    {
+      "frame": 15,
+      "angle": -88
+    },
+    {
+      "frame": 22,
+      "angle": -77
+    },
+    {
+      "frame": 28,
+      "angle": -75
+    },
+    {
+      "frame": 36,
+      "angle": -67
+    },
+    {
+      "frame": 44,
+      "angle": -49
+    },
+    {
+      "frame": 53,
+      "angle": -25
+    },
+    {
+      "frame": 62,
+      "angle": -15
+    },
+    {
+      "frame": 68,
+      "angle": -6
+    },
+    {
+      "frame": 74,
+      "angle": 9
+    },
+    {
+      "frame": 81,
+      "angle": 25
+    },
+    {
+      "frame": 88,
+      "angle": 48
+    },
+    {
+      "frame": 92,
+      "angle": 71
+    },
+    {
+      "frame": 95,
+      "angle": 74
+    },
+    {
+      "frame": 100,
+      "angle": 82
+    },
+    {
+      "frame": 106,
+      "angle": 84
+    },
+    {
+      "frame": 112,
+      "angle": 93
+    },
+    {
+      "frame": 119,
+      "angle": 108
+    },
+    {
+      "frame": 124,
+      "angle": 132
+    },
+    {
+      "frame": 131,
+      "angle": 153
+    },
+    {
+      "frame": 137,
+      "angle": 169
+    },
+    {
+      "frame": 142,
+      "angle": -179
+    },
+    {
+      "frame": 148,
+      "angle": -171
+    },
+    {
+      "frame": 154,
+      "angle": -154
+    },
+    {
+      "frame": 157,
+      "angle": -135
+    },
+    {
+      "frame": 163,
+      "angle": -112
+    },
+    {
+      "frame": 166,
+      "angle": -104
+    },
+    {
+      "frame": 170,
+      "angle": -98
+    },
+    {
+      "frame": 176,
+      "angle": -94
+    },
+    {
+      "frame": 183,
+      "angle": -93.1
+    },
+    {
+      "frame": 191,
+      "angle": -92.1
+    }
+  ],
+  "face": {
+    "radius": 0.22,
+    "step": 0.7,
+    "spokes": [
+      {
+        "name": "haut",
+        "path": "../maine-coon-face/up",
+        "ring": 0
+      },
+      {
+        "name": "haut-droite",
+        "path": "../maine-coon-face/up-right",
+        "ring": 43
+      },
+      {
+        "name": "droite",
+        "path": "../maine-coon-face/right",
+        "ring": 66
+      },
+      {
+        "name": "bas-droite",
+        "path": "../maine-coon-face/down-right",
+        "ring": 89
+      },
+      {
+        "name": "bas",
+        "path": "../maine-coon-face/down",
+        "ring": 112
+      },
+      {
+        "name": "bas-gauche",
+        "path": "../maine-coon-face/down-left",
+        "ring": 127
+      },
+      {
+        "name": "gauche",
+        "path": "../maine-coon-face/left",
+        "ring": 149
+      },
+      {
+        "name": "haut-gauche",
+        "path": "../maine-coon-face/up-left",
+        "ring": 163
+      }
+    ]
+  }
+}

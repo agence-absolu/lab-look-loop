@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #1d1733;
+  --surface: rgba(255, 255, 255, 0.05);
+  --line: rgba(242, 239, 233, 0.14);
+  --text: #f2efe9;
+  --muted: rgba(242, 239, 233, 0.62);
+  --accent: #ffd35c;
+  --radius: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-block-size: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+/* Titre en bas à gauche, en jaune sur le violet, derrière le chat (canvas
+   transparent) : là où ils se croisent, le chat passe devant. */
+
+.caption {
+  position: fixed;
+  inset: auto auto clamp(1rem, 3vw, 2.5rem) clamp(1rem, 3vw, 2.5rem);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.caption h1 {
+  color: var(--accent);
+  font-size: clamp(3rem, 9vw, 8.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+
+.caption p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Scène */
+
+.stage {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 1;
+  inline-size: min(92vh, 94vw);
+}
+
+.stage__canvas {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* Clip opaque (manifeste avec background) : fondu des bords, car le fond d'un clip
+   généré n'est jamais tout à fait uni (sol éclairé, vignettage) et découperait un
+   carré sur la page. Inutile, et nuisible aux pattes, sur un clip détouré. */
+.stage.is-opaque .stage__canvas {
+  mask-image:
+    linear-gradient(to bottom, transparent, #000 6%, #000 90%, transparent),
+    linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-composite: intersect;
+}
+
+/* Démo : la mouche fait office de curseur sur toute la page ; le curseur natif ne
+   reste visible que sur le panneau lil-gui (ses contrôles gardent leurs curseurs). */
+body.has-fly {
+  cursor: none;
+}
+
+body.has-fly .lil-gui {
+  cursor: auto;
+}
+
+.stage.is-calibrating {
+  cursor: crosshair;
+}
+
+.stage.is-calibrating::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius);
+  pointer-events: none;
+}
+
+.stage__loader {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.stage__loader[hidden] {
+  display: none;
+}
+
+.stage__progress {
+  inline-size: 12rem;
+  block-size: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.stage__progress > span {
+  display: block;
+  block-size: 100%;
+  inline-size: 0;
+  background: var(--accent);
+}
+
+.stage__anchor {
+  position: absolute;
+  inset: 0 auto auto 0;
+  inline-size: 14px;
+  block-size: 14px;
+  margin: -7px 0 0 -7px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Mouche */
+
+.fly {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 10;
+  pointer-events: none;
+  /* Ombre portée vers le bas, portée aussi par le voile des ailes : la mouche vole
+     devant la page. Dessinée en CSS, sur le canvas non tourné, elle reste toujours
+     dessous quel que soit le cap (une ombre intégrée au sprite tournerait avec lui). */
+  filter: drop-shadow(0 12px 5px rgba(0, 0, 0, 0.6));
+}
+
+.fly[hidden] {
+  display: none;
+}
+

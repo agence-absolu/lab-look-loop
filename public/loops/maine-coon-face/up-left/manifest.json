@@ -1,0 +1,15 @@
+{
+  "count": 33,
+  "pattern": "{n}.webp",
+  "pad": 2,
+  "width": 1080,
+  "height": 1080,
+  "fps": 30,
+  "startAngle": 0,
+  "clockwise": true,
+  "anchor": [
+    0.5,
+    0.45
+  ],
+  "keys": []
+}
